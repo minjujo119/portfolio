@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui, target-densitydpi=device-dpi">
+  <meta name="format-detection" content="telephone=no, address=no, email=no">
+  <title>포트폴리오 :: 웹퍼블리셔 조민주</title>
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/style.min.css">
+</head>
+<body>
+  <div class="wrap">
+
+  <!-- header -->
+  <header class="header">
+    <h1 class="header-text">MINJU'S PORTFOLIO</h1>
+
+  </header>
+
+  <!-- main -->
+  <main class="main">
+
+    <section class="section section-hero">
+      <div class="section-hero-img"><img src="img/submarine.svg" alt=""></div>
+      <h2 class="section-hero-text-main">안녕하세요!<br>웹퍼블리셔 <span class="section-hero-text-name">조민주</span>입니다.</h2>
+      <p class="section-hero-text-sub">Let’s take a deep dive into who I am!</p>
+    </section>
+
+    <section class="section section-about">
+      <div class="section-about-item"></div>
+      <div class="section-about-item"></div>
+      <div class="section-about-item"></div>
+      <span class="section-about-bg"></span>
+    </section>
+
+
+    <!-- menu -->
+    <nav class="menu">
+      <ul class="menu-list">
+        <li class="menu-item is-active"><span class="menu-item-text">Say Hello</span></li>
+        <li class="menu-item"><span class="menu-item-text">About Me</span></li>
+        <li class="menu-item"><span class="menu-item-text">Main Project</span></li>
+        <li class="menu-item"><span class="menu-item-text">Mini Project</span></li>
+      </ul>
+    </nav>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+
+  </footer>
+  </div>
+
+  <!-- script -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script> 
+  <script src="js/interaction.js"></script>
+
+  <script>
+
+    // Lenis 라이브러리 - 부드러운 스크롤 효과
+
+    const lenis = new Lenis()
+
+    lenis.on('scroll', (e) => {
+      console.log(e)
+    })
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+    requestAnimationFrame(raf);
+
+  </script>
+</body>
+</html>

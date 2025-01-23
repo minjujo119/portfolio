@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui, target-densitydpi=device-dpi">
+  <meta name="format-detection" content="telephone=no, address=no, email=no">
+  <title>제목</title>
+  <link rel="stylesheet" type="text/css" href="common.css">
+</head>
+<body>
+
+  <div class="hams">
+  
+    <div class="hamburger" id="hamburger-8">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+
+    <div class="hamburger" id="hamburger-6">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </div>
+</div>
+
+
+<style>
+
+.hams {
+  display: flex;
+  gap: 20px;
+}
+
+.hamburger .line{
+  width: 50px;
+  height: 5px;
+  background-color: #ecf0f1;
+  display: block;
+  margin: 8px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger:hover{
+  cursor: pointer;
+}
+
+#hamburger-8.is-active .line:nth-child(2){
+  opacity: 0;
+}
+
+#hamburger-8.is-active .line:nth-child(1){
+  -webkit-transform: translateY(13px);
+  -ms-transform: translateY(13px);
+  -o-transform: translateY(13px);
+  transform: translateY(13px);
+}
+
+#hamburger-8.is-active .line:nth-child(3){
+  -webkit-transform: translateY(-13px) rotate(90deg);
+  -ms-transform: translateY(-13px) rotate(90deg);
+  -o-transform: translateY(-13px) rotate(90deg);
+  transform: translateY(-13px) rotate(90deg);
+}
+
+
+#hamburger-6.is-active{
+  transition: all 0.3s ease-in-out;
+  transition-delay: 0.2s;
+  transform: rotate(45deg);
+}
+
+#hamburger-6.is-active .line:nth-child(2){
+  opacity: 0;
+}
+#hamburger-6.is-active .line:nth-child(1){
+  -webkit-transform: translateY(13px);
+  -ms-transform: translateY(13px);
+  -o-transform: translateY(13px);
+  transform: translateY(13px);
+}
+
+#hamburger-6.is-active .line:nth-child(3){
+  -webkit-transform: translateY(-13px) rotate(90deg);
+  -ms-transform: translateY(-13px) rotate(90deg);
+  -o-transform: translateY(-13px) rotate(90deg);
+  transform: translateY(-13px) rotate(90deg);
+}
+</style>
+
+  <script>
+    const hamburgers = document.querySelectorAll('.hamburger');
+    hamburgers.forEach((hamburger)=> {
+      hamburger.addEventListener('click', (e)=>{
+        e.currentTarget.classList.toggle('is-active');
+      })
+    })
+
+  </script>
+</body>
+</html>
