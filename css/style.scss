@@ -6,12 +6,19 @@ $menuHeight: 36px;
 
 // body
 body {
+  overflow: hidden;
   background-color: $bgColor;
   background: linear-gradient(180deg, rgba(0,51,161,1) 0%, rgba(0,0,0,1) 100%);
 }
-
-// header
+.wrap {
+  z-index: 1;
+}
 .header {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 20px 12px 0 12px;
   box-sizing: border-box;
 
@@ -22,23 +29,25 @@ body {
     letter-spacing: 1.2em;
     text-align: center;
     color: #fff;
+    mix-blend-mode: difference;
   }
 }
-
-// sticky menu
 .menu {
+  z-index: 100;
   position: sticky;
   bottom: 20px;
-  z-index: 10;
-  width: 0%;
-  max-width: 480px;
-  padding: 0 12px;
+  width: 10%;
+  max-width: 500px;
+  padding: 0 10px;
   text-align: center;
   backdrop-filter: blur(5px);
   box-sizing: border-box;
-  transition: 0.8s ease-in;
+  opacity: 0;
+  transition: width 0.5s cubic-bezier(0.680, -0.350, 0.45, 1.4);
 
+  // 페이지 로드 시 인터랙션
   &.is-show {
+    opacity: 1;
     width: 100%;
     .menu-list {opacity: 1;}
     .menu-list::after {opacity: 1;}
@@ -56,21 +65,19 @@ body {
     border-radius: calc($menuHeight / 2);
     background-color: rgba($color: #fff, $alpha: 0.2);
     box-sizing: border-box;
-    opacity: 0;
-    transition: width 0.3s ease-in-out;
   
     &::after {
       position: absolute;
       top: 3px;
       left: 3px;
-      width: calc((100% - 4px) / 4);
+      width: calc((100% - 4px) / 5);
       max-width: 120px;
       height: calc(100% - 6px);
       border-radius: 20px;
       background-color: #ffc200;
       content: '';
       opacity: 0;
-      transition: all 0.3s ease-out 0.3s;
+      transition: opacity 0.3s ease-in-out 0.3s;
     }
   }
   .menu-item {
@@ -79,26 +86,28 @@ body {
     opacity: 0;
     display: inline-block;
     width: calc(100% / 4);
-    max-width: 180px;
+    max-width: 120px;
     height: calc(100%);
     border-radius: 18px;
     font-size: 14px;
     font-weight: 200;
     line-height: 29px;
     color: #fff;
-    transition: opacity 0.1s 0.4s;
     cursor: pointer;
     white-space: nowrap;
     box-sizing: border-box;
+    transition: opacity 0.3s ease-in-out 0.3s;
+
+    &:hover .menu-item-text{
+      font-weight: 400;
+    }
   
     &.is-active .menu-item-text{
-      font-weight: 500;
+      font-weight: 400;
       color: #000;
     }
   }  
 }
-
-// main
 .main {
   position: relative;
   perspective: 100px;
@@ -106,23 +115,29 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  // min-height: calc(100vh - $headerHeight);
-  padding: 0 12px;
+  min-height: calc(100vh);
   padding-bottom: 20px;
 }
-
-// sections
+.section {
+  width: 100%;
+  box-sizing: border-box;
+}
 .section-hero {
-  height: calc(100vh - $headerHeight - 27vh);
-  text-align: center;
-  color: #fff;
-  margin-top: 27vh;
+  height: calc(100vh);
 
-  &-img {
+  &-contents {
+    // position: relative;
+    margin-top: 25vh;
+    text-align: center;
+    color: #fff;  
+  }
+  .submarine {
+    // position: absolute;
+    // top: 0%;
+    // left: 50%;
     display: inline-block;
     width: 60px;
     height: 60px;
-    transform: translateZ(10px);
   }
   &-text-main {
     margin-top: 18px;
@@ -152,11 +167,56 @@ body {
   }
 }
 .section-about {
+  position: relative;
   height: 200vh;
-}
 
-// footer
+  &-item {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background-color: red;
+  }
+  &-item:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+  &-item:nth-child(2) {
+    top: 0;
+    left: 0;
+  }  &-item:nth-child(3) {
+    top: 0;
+    left: 0;
+  }
+}
 .footer {
-  height: 80vh;
+  height: 100dvh;
   background-color: #000;
+  color: #fff;
+  &-text {
+
+  }
+}
+.cursor {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 500px;
+  height: 500px;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba($color: $pointColor, $alpha: 0.3) 0%, rgba(0,0,0,0) 70%);
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    content: '';
+    transform: translate(-50%,-50%);
+  }
 }

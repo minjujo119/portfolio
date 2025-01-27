@@ -24,8 +24,21 @@
     </div>
 </div>
 
+<div class="box"></div>
+
+
 
 <style>
+  body {text-align:center;}
+.box {
+  display: inline-block;
+  width:50px;height:50px;background-color:pink;
+transition:width 0.4s cubic-bezier(0.680, -0.550, 0.265, 1.550)
+;
+}
+.box.is-active {
+  width: 200px;
+}
 
 .hams {
   display: flex;
@@ -98,6 +111,12 @@
       })
     })
 
+
+    const box = document.querySelector('.box');
+    box.addEventListener("mouseover", (e)=>{
+      e.target.classList.add('is-active')
+      console.log('ee');
+    })
   </script>
 </body>
 </html>

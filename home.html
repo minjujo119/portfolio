@@ -21,15 +21,17 @@
   <main class="main">
 
     <section class="section section-hero">
-      <div class="section-hero-img"><img src="img/submarine.svg" alt=""></div>
-      <h2 class="section-hero-text-main">안녕하세요!<br>웹퍼블리셔 <span class="section-hero-text-name">조민주</span>입니다.</h2>
-      <p class="section-hero-text-sub">Let’s take a deep dive into who I am!</p>
+      <div class="section-hero-contents">
+        <div class="submarine"><img src="img/submarine.svg" alt=""></div>
+        <h2 class="section-hero-text-main">안녕하세요!<br>웹퍼블리셔 <span class="section-hero-text-name">조민주</span>입니다.</h2>
+        <p class="section-hero-text-sub">Let’s take a deep dive into who I am!</p>
+      </div>
     </section>
 
     <section class="section section-about">
-      <div class="section-about-item"></div>
-      <div class="section-about-item"></div>
-      <div class="section-about-item"></div>
+      <div class="section-about-item section-about-item1"></div>
+      <div class="section-about-item section-about-item2"></div>
+      <div class="section-about-item section-about-item3"></div>
       <span class="section-about-bg"></span>
     </section>
 
@@ -37,10 +39,11 @@
     <!-- menu -->
     <nav class="menu">
       <ul class="menu-list">
-        <li class="menu-item is-active"><span class="menu-item-text">Say Hello</span></li>
-        <li class="menu-item"><span class="menu-item-text">About Me</span></li>
-        <li class="menu-item"><span class="menu-item-text">Main Project</span></li>
-        <li class="menu-item"><span class="menu-item-text">Mini Project</span></li>
+        <li class="menu-item is-active"><span class="menu-item-text">인사말</span></li>
+        <li class="menu-item"><span class="menu-item-text">자기소개</span></li>
+        <li class="menu-item"><span class="menu-item-text">프로젝트</span></li>
+        <li class="menu-item"><span class="menu-item-text">개인공부</span></li>
+        <li class="menu-item"><span class="menu-item-text">연락처</span></li>
       </ul>
     </nav>
 
@@ -48,14 +51,33 @@
 
   <!-- footer -->
   <footer class="footer">
-
+    <span class="footer-text">Fooooooter.</span>
+    <div class="footer-inner">
+      <div class="footer-content contact">
+        <h2 class="footer-content-title">가치관</h2>
+        <p class="contact-value">프론트엔드 개발자로 성장하기 위해 낯선 기술에도 적극적으로 도전하고, 항상 사용자의 관점에서 생각하며 사용하기 좋은 서비스를 만들고 싶습니다.</p>
+        <h3 class="contact-title-sub">EMAIL</h3>
+        <p class="contact"></p>
+      </div>
+      <div class="footer-content history">
+        <h2 class="footer-content-title">이력</h2>
+        <ul class="history-list">
+          <li class="history-item"></li>
+          <li class="history-item"></li>
+          <li class="history-item"></li>
+        </ul>
+      </div>
+    </div>
   </footer>
   </div>
+  
+  <span class="cursor"></span>
 
   <!-- script -->
   <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
   <script src="js/interaction.js"></script>
-
   <script>
 
     // Lenis 라이브러리 - 부드러운 스크롤 효과
@@ -63,7 +85,7 @@
     const lenis = new Lenis()
 
     lenis.on('scroll', (e) => {
-      console.log(e)
+      // console.log(e)
     })
     function raf(time) {
       lenis.raf(time)
