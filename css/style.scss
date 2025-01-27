@@ -36,32 +36,24 @@ body {
   z-index: 100;
   position: sticky;
   bottom: 20px;
-  width: 10%;
-  max-width: 500px;
   padding: 0 10px;
   text-align: center;
   backdrop-filter: blur(5px);
   box-sizing: border-box;
-  opacity: 0;
-  transition: width 0.5s cubic-bezier(0.680, -0.350, 0.45, 1.4);
 
   // 페이지 로드 시 인터랙션
   &.is-show {
-    opacity: 1;
-    width: 100%;
-    .menu-list {opacity: 1;}
     .menu-list::after {opacity: 1;}
-    .menu-item {opacity: 1;}
+    .menu-item {opacity: 1; width:100px;}
   }
 
   .menu-list {
     position: relative;
     display: flex;
     justify-content: space-between;
-    width: 100%;
     height: $menuHeight;
     padding: 2px;
-    border: 1px solid rgba(256,256,256,0.5);
+    border: 1px solid rgba($color: #fff, $alpha: 0.5);
     border-radius: calc($menuHeight / 2);
     background-color: rgba($color: #fff, $alpha: 0.2);
     box-sizing: border-box;
@@ -70,14 +62,14 @@ body {
       position: absolute;
       top: 3px;
       left: 3px;
-      width: calc((100% - 4px) / 5);
+      width: 100px;
       max-width: 120px;
       height: calc(100% - 6px);
       border-radius: 20px;
-      background-color: #ffc200;
+      background-color: $pointColor;
       content: '';
       opacity: 0;
-      transition: opacity 0.3s ease-in-out 0.3s;
+      transition: opacity 0.3s linear 0.3s;
     }
   }
   .menu-item {
@@ -85,9 +77,8 @@ body {
     z-index: 15;
     opacity: 0;
     display: inline-block;
-    width: calc(100% / 4);
-    max-width: 120px;
-    height: calc(100%);
+    width: 0;
+    height: 100%;
     border-radius: 18px;
     font-size: 14px;
     font-weight: 200;
@@ -96,7 +87,7 @@ body {
     cursor: pointer;
     white-space: nowrap;
     box-sizing: border-box;
-    transition: opacity 0.3s ease-in-out 0.3s;
+    transition: all 0.4s cubic-bezier(0.680, -0.350, 0.45, 1.4);
 
     &:hover .menu-item-text{
       font-weight: 400;
@@ -106,7 +97,7 @@ body {
       font-weight: 400;
       color: #000;
     }
-  }  
+  }
 }
 .main {
   position: relative;
