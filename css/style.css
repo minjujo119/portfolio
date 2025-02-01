@@ -136,24 +136,22 @@ body {
 }
 .section-hero-contents {
   margin-top: 25vh;
-  text-align: center;
   color: #fff;
 }
 .section-hero .submarine {
+  position: absolute;
+  top: 0%;
+  right: 10%;
   display: inline-block;
   width: 60px;
   height: 60px;
 }
 .section-hero-text-main {
-  margin-top: 18px;
-  font-size: 60px;
-  line-height: 1.4;
+  padding: 0 20px;
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 1.2;
   word-break: keep-all;
-}
-.section-hero-text-sub {
-  font-size: 16px;
-  font-weight: 400;
-  margin-top: 32px;
 }
 .section-hero-text-name {
   position: relative;
@@ -163,8 +161,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 130%;
-  height: 80%;
+  width: 120%;
+  height: 90%;
   border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: 50%;
   -webkit-transform: translate(-50%, -50%) rotate(-12deg);
@@ -179,9 +177,9 @@ body {
 }
 .section-about-item {
   position: absolute;
-  width: 200px;
+  width: 300px;
   height: 200px;
-  border-radius: 100%;
+  border-radius: 12px;
   background-color: red;
 }
 .section-about-item:nth-child(1) {
@@ -195,6 +193,19 @@ body {
 .section-about-item:nth-child(3) {
   top: 0;
   left: 0;
+}
+.section-about .marquee {
+  position: absolute;
+  top: 30%;
+  left: -10%;
+  background-color: #ffc200;
+  color: #000;
+  font-size: 80px;
+  font-weight: 600;
+  white-space: nowrap;
+  -webkit-transform: rotate(10deg);
+      -ms-transform: rotate(10deg);
+          transform: rotate(10deg);
 }
 
 .footer {
@@ -214,7 +225,7 @@ body {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255, 194, 0, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(circle, rgba(255, 194, 0, 0.3) 0%, rgba(0, 0, 0, 0) 60%);
 }
 .cursor::after {
   position: absolute;
@@ -227,4 +238,26 @@ body {
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    top: 30%;
+    left: -10%;
+  }
+  100% {
+    top: -1%;
+    left: -100%;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    top: 30%;
+    left: -10%;
+  }
+  100% {
+    top: -1%;
+    left: -100%;
+  }
 }

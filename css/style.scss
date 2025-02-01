@@ -119,27 +119,22 @@ body {
   &-contents {
     // position: relative;
     margin-top: 25vh;
-    text-align: center;
     color: #fff;  
   }
   .submarine {
-    // position: absolute;
-    // top: 0%;
-    // left: 50%;
+    position: absolute;
+    top: 0%;
+    right: 10%;
     display: inline-block;
     width: 60px;
     height: 60px;
   }
   &-text-main {
-    margin-top: 18px;
-    font-size: 60px;
-    line-height: 1.4;
+    padding: 0 20px;
+    font-size: 80px;
+    font-weight: 600;
+    line-height: 1.2;
     word-break: keep-all;
-  }
-  &-text-sub {
-    font-size: 16px;
-    font-weight: 400;
-    margin-top: 32px;
   }
   &-text-name {
     position: relative;
@@ -149,8 +144,8 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 130%;
-    height: 80%;
+    width: 120%;
+    height: 90%;
     border: 1px solid rgba(256,256,256,0.7);
     border-radius: 50%;
     transform: translate(-50%,-50%) rotate(-12deg);
@@ -163,9 +158,9 @@ body {
 
   &-item {
     position: absolute;
-    width: 200px;
+    width: 300px;
     height: 200px;
-    border-radius: 100%;
+    border-radius: 12px;
     background-color: red;
   }
   &-item:nth-child(1) {
@@ -178,6 +173,19 @@ body {
   }  &-item:nth-child(3) {
     top: 0;
     left: 0;
+  }
+
+  .marquee {
+    position: absolute;
+    top: 30%;
+    left: -10%;
+    background-color: $pointColor;
+    color: #000;
+    font-size: 80px;
+    font-weight: 600;
+    white-space: nowrap;
+    transform: rotate(10deg);
+    // animation: marquee 10s linear infinite;
   }
 }
 .footer {
@@ -198,7 +206,7 @@ body {
   height: 500px;
   border-radius: 100%;
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba($color: $pointColor, $alpha: 0.3) 0%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, rgba($color: $pointColor, $alpha: 0.3) 0%, rgba(0,0,0,0) 60%);
 
   &::after {
     position: absolute;
@@ -210,4 +218,9 @@ body {
     content: '';
     transform: translate(-50%,-50%);
   }
+}
+
+@keyframes marquee {
+  0% { top: 30%; left: -10%; }
+  100% { top: -1%; left: -100%; }
 }
