@@ -1,10 +1,11 @@
 // variables
 $bgColor: #0D2E99;
 $pointColor: #ffc200;
-$headerHeight: 32px;
 $menuHeight: 36px;
 
-// body
+html {
+  font-size: 62.5%;
+}
 body {
   overflow: hidden;
   background-color: $bgColor;
@@ -89,11 +90,11 @@ body {
     box-sizing: border-box;
     transition: all 0.4s cubic-bezier(0.680, -0.350, 0.45, 1.4);
 
-    &:hover .menu-item-text{
+    &:hover .menu-item-txt{
       font-weight: 400;
     }
   
-    &.is-active .menu-item-text{
+    &.is-active .menu-item-txt{
       font-weight: 400;
       color: #000;
     }
@@ -121,35 +122,57 @@ body {
     margin-top: 25vh;
     color: #fff;  
   }
-  .submarine {
+  &-img {
     position: absolute;
     top: 0%;
     right: 10%;
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
   }
-  &-text-main {
+  &-txt {
     padding: 0 20px;
-    font-size: 80px;
+    font-size: 12rem;
     font-weight: 600;
     line-height: 1.2;
     word-break: keep-all;
-  }
-  &-text-name {
-    position: relative;
-    display: inline-block;
-  }
-  &-text-name::after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 120%;
-    height: 90%;
-    border: 1px solid rgba(256,256,256,0.7);
-    border-radius: 50%;
-    transform: translate(-50%,-50%) rotate(-12deg);
-    content: '';
+
+    &-slide {
+      overflow: hidden;
+      height: calc(12rem * 1.2);
+
+      &:hover .slide-list{
+        animation-play-state: paused;
+      }
+      
+      .slide-list {
+        will-change: transform;
+        animation: txtSlide ease-in-out 10s infinite;
+
+
+      }
+      .slide-item {
+        display: block;
+        white-space: nowrap;
+      }
+    }
+    &-name {
+      position: relative;
+      display: inline-block;
+  
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 120%;
+        height: 90%;
+        border: 1px solid rgba(256,256,256,0.7);
+        border-radius: 50%;
+        transform: translate(-50%,-50%) rotate(-12deg);
+        content: '';
+      }
+    }
+  
   }
 }
 .section-about {
@@ -223,4 +246,13 @@ body {
 @keyframes marquee {
   0% { top: 30%; left: -10%; }
   100% { top: -1%; left: -100%; }
+}
+@keyframes txtSlide {
+  0% { transform: translateY(0%); } // 100/12*0%
+  25% { transform: translateY(0%); }  // 100/12*3%
+  33.3% { transform: translateY(-33.33%); } // 100/12*4%
+  58.3% { transform: translateY(-33.33%); } // 100/12*7%
+  66.6% { transform: translateY(-66.66%); } // 100/12*8%
+  91.7% { transform: translateY(-66.66%); } // 100/12*11%
+  100% { transform: translateY(-100%); } // 100/12*12%
 }
