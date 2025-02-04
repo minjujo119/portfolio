@@ -191,6 +191,30 @@ body {
           transform: translate(-50%, -50%) rotate(-12deg);
   content: "";
 }
+@media (max-width: 1023.98px) {
+  .section-hero-txt {
+    font-size: 10rem;
+  }
+  .section-hero-txt-slide {
+    height: 12rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .section-hero-txt {
+    font-size: 5rem;
+  }
+  .section-hero-txt-slide {
+    height: 6rem;
+  }
+}
+@media (max-width: 479.98px) {
+  .section-hero-txt {
+    font-size: 3.5rem;
+  }
+  .section-hero-txt-slide {
+    height: 4.2rem;
+  }
+}
 
 .section-about {
   position: relative;

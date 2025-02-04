@@ -1,3 +1,5 @@
+@import 'mixins.scss';
+
 // variables
 $bgColor: #0D2E99;
 $pointColor: #ffc200;
@@ -172,7 +174,19 @@ body {
         content: '';
       }
     }
-  
+    
+    @include media-down(md) {
+      font-size: 10rem;
+      &-slide { height: calc(10rem * 1.2); }
+    }
+    @include media-down(sm) {
+      font-size: 5rem;
+      &-slide { height: calc(5rem * 1.2); }
+    }
+    @include media-down(xs) {
+      font-size: 3.5rem;
+      &-slide { height: calc(3.5rem * 1.2); }
+    }
   }
 }
 .section-about {
